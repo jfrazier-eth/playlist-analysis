@@ -22,7 +22,10 @@ get_token <- function() {
         q()
     }
 
-    my_oauth <- spotifyOAuth(app_id="", client_id = client_id, client_secret = client_secret)
+    my_oauth <- spotifyOAuth(
+        app_id = "",
+        client_id = client_id, client_secret = client_secret
+    )
 
     return(my_oauth)
 }

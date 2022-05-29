@@ -1,5 +1,5 @@
 source("./src/oauth.R")
-source("./src/getUserPlaylists.R")
+source("./src/selectPlaylist.R")
 
 # create a function that prints hello world
 main <- function() {
@@ -12,7 +12,10 @@ main <- function() {
 
   print(paste("Welcome", display_name))
 
-  get_user_playlists(user_id = user_id, user_token = user_token)
+  selected_playlist <- select_playlist(
+    user_id = user_id, user_token = user_token)
+
+  print(selected_playlist)
 }
 
 

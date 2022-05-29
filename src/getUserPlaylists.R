@@ -1,11 +1,11 @@
 install.packages("Rspotify", repos = "http://cran.wustl.edu/")
 library("Rspotify")
 
-get_user_playlists <- function(user_id, user_token) {
-    user_selected_playlist <- FALSE
+get_user_playlists <- function(user_id, user_token, on_page) {
+    should_continue <- TRUE
     offset <- 0
     page_size <- 50
-    while (user_selected_playlist != TRUE) {
+    while (should_continue == TRUE) {
         playlists <- getPlaylists(
             user_id = user_id,
             offset = offset,
@@ -17,38 +17,24 @@ get_user_playlists <- function(user_id, user_token) {
         playlist_owner_ids <- playlists$ownerid
         playlist_num_tracks <- playlists$tracks
 
-        selections <- playlist_names
-        get_more <- "Get more playlists"
         has_next_page <- length(playlist_names) == page_size
 
-        print(playlists)
+        result <- on_page(
+            playlist_names,
+            playlist_ids,
+            playlist_owner_ids,
+            playlist_num_tracks,
+            has_next_page
+        )
+        requested_more <- result$request_more
 
-        if (has_next_page) {
-            selections <- append(selections,
-                get_more,
-                after = length(selections)
-            )
+        if (requested_more == FALSE) {
+            result$request_more <- NULL
+            return(result)
         }
-        # playlists = name, id, ownerid, tracks (number of tracks)
-        selection <- select.list(selections, title = "Select a playlist")
-        if (selection != get_more) {
-            playlist_name <- selection
-            index <- match(selection, playlist_names)
-
-            playlist_id <- playlist_ids[index]
-            playlist_owner_id <- playlist_owner_ids[index]
-            playlist_num_tracks <- playlist_num_tracks[index]
-            user_selected_playlist <- TRUE
-            print(paste(
-                "You selected", playlist_name,
-                "Owner:", playlist_owner_id,
-                "Number of tracks:", playlist_num_tracks,
-                "ID:", playlist_id
-            ))
-            return(playlist_id)
-        } else {
-            offset <- offset + length(playlist_names)
-            print(paste("Getting more playlists...", offset))
-        }
+        should_continue <- requested_more && has_next_page
+        offset <- offset + page_size
     }
+
+    return(NULL)
 }
