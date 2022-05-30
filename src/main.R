@@ -9,7 +9,7 @@ source("./src/getTracksAudioFeatures.R")
 
 
 main <- function() {
-  user_token <- get_token()
+  user_token <- get_auth_token()
 
   user_id <- readline(
     prompt =
@@ -35,6 +35,7 @@ main <- function() {
 
   tracks <- merge(tracks, audio_features, by = "id")
 
+  # uncomment this to view the structure of tracks
   # print(summary(tracks))
 
   plot(

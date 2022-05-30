@@ -2,8 +2,7 @@ library("dotenv")
 library("Rspotify")
 library("httpuv")
 
-
-get_token <- function() {
+get_auth_token <- function() {
     load_dot_env(file = ".env")
 
     client_id <- Sys.getenv("CLIENT_ID")
