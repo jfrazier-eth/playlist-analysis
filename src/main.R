@@ -1,8 +1,13 @@
+install.packages("dotenv", repos = "http://cran.wustl.edu/")
+install.packages("Rspotify", repos = "http://cran.wustl.edu/")
+install.packages("httpuv", repos = "http://cran.wustl.edu/")
+
 source("./src/oauth.R")
 source("./src/selectPlaylist.R")
 source("./src/getPlaylistTracks.R")
+source("./src/getTracksAudioFeatures.R")
 
-# create a function that prints hello world
+
 main <- function() {
   user_token <- get_token()
 
@@ -17,14 +22,22 @@ main <- function() {
     user_id = user_id, user_token = user_token
   )
 
-  print(selected_playlist)
+  # print(selected_playlist)
 
   tracks <- get_playlist_tracks(
     user_token = user_token,
     owner_id = selected_playlist$owner_id, playlist_id = selected_playlist$id
   )
 
-  print(str(tracks))
+  # print(str(tracks))
+
+  audio_features <- get_tracks_audio_features(
+    ids = tracks$track_id, token = user_token
+  )
+
+  num_rows <- dim(audio_features)[1]
+
+  print(paste("Found:", num_rows, "audio features"))
 
 
 }

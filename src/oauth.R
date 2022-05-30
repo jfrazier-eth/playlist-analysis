@@ -1,6 +1,3 @@
-install.packages("dotenv", repos = "http://cran.wustl.edu/")
-install.packages("Rspotify", repos = "http://cran.wustl.edu/")
-install.packages("httpuv", repos = "http://cran.wustl.edu/")
 library("dotenv")
 library("Rspotify")
 library("httpuv")

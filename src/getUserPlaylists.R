@@ -1,4 +1,3 @@
-install.packages("Rspotify", repos = "http://cran.wustl.edu/")
 library("Rspotify")
 
 get_user_playlists <- function(user_id, user_token, on_page) {
