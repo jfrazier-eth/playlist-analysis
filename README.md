@@ -3,6 +3,7 @@
 ## Goal
 * Pull and view stats about a "song a day" playlist 
     * Assumes that you have a playlist that has had songs added to it once a day for some length of time
+* Learn some R
 
 ## Setup 
 1. Login with your spotify account and create a spotify developer application [here](https://developer.spotify.com/)
