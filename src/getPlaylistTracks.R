@@ -13,7 +13,7 @@ get_playlist_tracks <- function(user_token, owner_id, playlist_id) {
             track <- data.frame(
                 track_name = track_name,
                 album_id = page$album_id[index],
-                track_id = page$id[index],
+                id = page$id[index],
                 popularity = page$popularity[index],
                 artist = page$artist[index],
                 artist_id = page$artist_id[index],
