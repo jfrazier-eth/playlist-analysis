@@ -1,5 +1,9 @@
 # playlist-analysis
 
+## Goal
+* Pull and view stats about a "song a day" playlist 
+    * Assumes that you have a playlist that has had songs added to it once a day for some length of time
+
 ## Setup 
 1. Login with your spotify account and create a spotify developer application [here](https://developer.spotify.com/)
 2. Copy the client id and client secret from the application and put them in the `sample.env` file
