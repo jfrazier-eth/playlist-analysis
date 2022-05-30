@@ -32,15 +32,10 @@ main <- function() {
   audio_features <- get_tracks_audio_features(
     ids = tracks$id, token = user_token
   )
-  num_rows <- dim(audio_features)[1]
-  print(paste("Found:", num_rows, "audio features"))
-
-  print(summary(tracks))
-  print(summary(audio_features))
 
   tracks <- merge(tracks, audio_features, by = "id")
 
-  print(summary(tracks))
+  # print(summary(tracks))
 
   plot(
     tracks$danceability,
