@@ -1,9 +1,5 @@
 # playlist-analysis
 
-## Goals 
-* Help a friend analyze their spotify playlists
-* Learn some R
-
 ## Setup 
 1. Login with your spotify account and create a spotify developer application [here](https://developer.spotify.com/)
 2. Copy the client id and client secret from the application and put them in the `sample.env` file
