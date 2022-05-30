@@ -16,3 +16,6 @@
 2. Start an interactive `R` session by running `R` in the terminal
 3. Load and run the main file in the session with `source("./src/main.R")`
 4. Follow the prompts in the interactive session to select a user and playlist
+
+## Example Plot
+![danceability](https://github.com/jfrazier-eth/playlist-analysis/blob/main/resources/danceability-example.png)
