@@ -18,4 +18,4 @@
 4. Follow the prompts in the interactive session to select a user and playlist
 
 ## Example Plot
-![danceability](https://github.com/jfrazier-eth/playlist-analysis/blob/main/resources/danceability-example.png)
+![danceability](https://github.com/jfrazier-eth/playlist-analysis/blob/main/resources/danceability.png)
