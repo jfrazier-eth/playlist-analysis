@@ -42,7 +42,8 @@ main <- function() {
     type = "o",
     xlab = "Day",
     ylab = "Danceability",
-    main = "Danceability over time"
+    main = "Danceability over time",
+    col = "blue"
   )
 }
 
